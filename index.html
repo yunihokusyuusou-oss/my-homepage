@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>居酒屋 ウルフのアジト - 公式ホームページ</title>
+    <style>
+        /* 全体のリセットと共通スタイル */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #1a1512;
+            color: #f4eee8;
+            line-height: 1.7;
+        }
+        
+        /* 1. ヘッダー：店名＋メイン写真 */
+        header {
+            position: relative;
+            width: 100%;
+            height: 60vh;
+            min-height: 350px;
+            background-color: #261d16;
+            overflow: hidden;
+        }
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.6);
+            display: block;
+        }
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .shop-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+            margin-bottom: 10px;
+        }
+        .shop-sub {
+            font-size: 1rem;
+            color: #ffcc80;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        /* コンテンツ全体のコンテナ */
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* セクション共通 */
+        section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #3d3127;
+        }
+        section:last-of-type {
+            border-bottom: none;
+        }
+        .section-title {
+            font-size: 1.6rem;
+            color: #ffcc80;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 15px;
+            border-left: 4px solid #e65100;
+        }
+
+        /* 2. お店の紹介文 */
+        .intro-text {
+            font-size: 1.1rem;
+            color: #ddd1c4;
+            text-align: justify;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+
+        /* 3. メニュー・サービス紹介 */
+        .menu-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            margin-top: 25px;
+        }
+        .menu-image-box {
+            flex: 1 1 350px;
+        }
+        .menu-img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border: 1px solid #4a3b30;
+            display: block;
+        }
+        .menu-desc-box {
+            flex: 1 1 400px;
+        }
+        .menu-lead {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+        .menu-list {
+            list-style: none;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #4a3b30;
+            font-size: 1rem;
+        }
+        .menu-item-name {
+            font-weight: bold;
+        }
+        .menu-item-price {
+            color: #ff8a80;
+            font-weight: bold;
+        }
+
+        /* 4. アクセス情報 */
+        .access-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+        .access-info {
+            flex: 1 1 300px;
+            background-color: #231b15;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #33271f;
+        }
+        .access-item {
+            margin-bottom: 15px;
+        }
+        .access-item:last-child {
+            margin-bottom: 0;
+        }
+        .access-label {
+            display: block;
+            font-size: 0.85rem;
+            color: #ffcc80;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        .access-value {
+            font-size: 1rem;
+            color: #ddd1c4;
+        }
+        .access-map-box {
+            flex: 1 1 450px;
+            min-height: 250px;
+            background-color: #120b07;
+            border-radius: 6px;
+            border: 1px solid #33271f;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #6e5e51;
+            font-size: 0.9rem;
+        }
+
+        /* 5. フッター（コピーライト） */
+        footer {
+            background-color: #0f0a07;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 2px solid #e65100;
+        }
+        .copyright {
+            font-size: 0.85rem;
+            color: #8c7664;
+        }
+
+        /* レスポンシブ対応の微調整 */
+        @media (max-width: 600px) {
+            .shop-name {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .intro-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ヘッダー：店名＋メイン写真 -->
+    <header>
+        <img src="images/hero.jpg" alt="ウルフのアジト メインビジュアル" class="hero-img">
+        <div class="header-overlay">
+            <h1 class="shop-name">ウルフのアジト</h1>
+            <p class="shop-sub">大人のための隠れ家居酒屋へようこそ</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- 2. お店の紹介文 -->
+        <section id="intro">
+            <div class="intro-text">
+                札幌の喧騒から少し離れたビルの一角にひっそりと佇む、知る人ぞ知る隠れ家酒場「ウルフのアジト」。<br>
+                店主の三浦秀樹が厳選した北海道産の新鮮な魚介類や、じっくりと炭火で焼き上げる香ばしい串焼き、そして厳選された美酒を心ゆくまでご堪能いただけます。<br>
+                一歩足を踏み入れれば、日常を忘れられる居心地の良い大人のアジト空間があなたをお迎えいたします。
+            </div>
+        </section>
+
+        <!-- 3. メニュー・サービス紹介 -->
+        <section id="menu">
+            <h2 class="section-title">メニュー・サービス</h2>
+            <div class="menu-container">
+                <!-- 写真 menu1.jpg 付き -->
+                <div class="menu-image-box">
+                    <img src="images/menu1.jpg" alt="ウルフのアジト おすすめ料理" class="menu-img">
+                </div>
+                <div class="menu-desc-box">
+                    <p class="menu-lead">今宵を彩る、当店自慢の「夏の献立」</p>
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <span class="menu-item-name">厚岸直送 牡蠣 2L (1ヶ)</span>
+                            <span class="menu-item-price">600円</span>
+                        </li>
+                        <li class="menu-item">
+                            <span class="menu-item-name">冷やし丸ごとトマトのお浸し</span>
+                            <span class="menu-item-price">600.円</span>
+                        </li>
+                        <li class="menu-item">
+                            <span class="menu-item-name">鶏唐揚げ 自家製タルタル添え</span>
+                            <span class="menu-item-price">780円</span>
+                        </li>
+                        <li class="menu-item">
+                            <span class="menu-item-name">活ツブ貝の網焼き</span>
+                            <span class="menu-item-price">850円</span>
+                        </li>
+                        <li class="menu-item">
+                            <span class="menu-item-name">北海道産 活ダコのお造り</span>
+                            <span class="menu-item-price">980円</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. アクセス情報 -->
+        <section id="access">
+            <h2 class="section-title">アクセス情報</h2>
+            <div class="access-grid">
+                <div class="access-info">
+                    <div class="access-item">
+                        <span class="access-label">住所</span>
+                        <span class="access-value">〒060-0000 北海道札幌市中央区某所 (隠れ家ビル内)</span>
+                    </div>
+                    <div class="access-item">
+                        <span class="access-label">営業時間</span>
+                        <span class="access-value">17:00 ～ 24:00 (L.O. 23:30)</span>
+                    </div>
+                    <div class="access-item">
+                        <span class="access-label">定休日</span>
+                        <span class="access-value">日曜日・祝日</span>
+                    </div>
+                    <div class="access-item">
+                        <span class="access-label">電話番号</span>
+                        <span class="access-value">011-XXX-XXXX</span>
+                    </div>
+                </div>
+                <div class="access-map-box">
+                    <!-- 実際にはここにGoogle Mapsの埋め込みコード等が入ります -->
+                    【MAP準備中（images/フォルダ内の地図や外部マップを配置可能）】
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 5. フッター（コピーライト） -->
+    <footer>
+        <p class="copyright">&copy; 2026 ウルフのアジト All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
